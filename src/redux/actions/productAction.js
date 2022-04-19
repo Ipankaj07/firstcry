@@ -2,6 +2,8 @@ import axios from 'axios';
 
 import { FETCH_PRODUCTS, FILTER_PRODUCTS, UPDATE_PRODUCT } from '../../constants/productActionType';
 
+let appDBUrl = process.env.REACT_APP_DB_URL;
+
 const getProductsData = (data) => {
     return {
         type: FETCH_PRODUCTS,
@@ -11,7 +13,7 @@ const getProductsData = (data) => {
 
 const fetchProductsData = () => async (dispatch) => {
     try {
-        const response = await axios.get('http://localhost:27017/products');
+        const response = await axios.get(`${appDBUrl}/products`);
         dispatch(getProductsData(response.data.product));
         console.log('im from p-Action', response.data.product);
     }
@@ -28,19 +30,9 @@ const filterProducts = (data) => {
     }
 }
 
-/* 
-let query = {
-    name,
-    price,
-    discount,
-    brand,
-    age,
-    color,
-    material,
-    subCategory
-} */
 
-const filterProductsData = (name,
+const filterProductsData = (
+    name,
     price,
     discount,
     brand,
@@ -51,7 +43,7 @@ const filterProductsData = (name,
         try {
             const res = await axios({
                 method: 'GET',
-                url: 'http://localhost:27017/products/filters',
+                url: `${appDBUrl}/products/filters`,
                 params: {
                     name,
                     price,
