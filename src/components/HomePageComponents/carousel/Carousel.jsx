@@ -1,4 +1,14 @@
 import React from "react";
+import "./carousel.css";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import { Navigation, Autoplay } from "swiper";
+
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
 
 let data = [
   {
@@ -52,7 +62,32 @@ let data = [
 ];
 
 function Carousel() {
-  return <div>Carousel</div>;
+  return (
+    <div>
+      <Swiper
+        modules={[Navigation, Autoplay]}
+        spaceBetween={10}
+        slidesPerView={1}
+        navigation
+        pagination={{ clickable: true }}
+        loop
+        autoplay={{ delay: 3000 }}
+      >
+        {data.map((item) => (
+          <SwiperSlide key={item.id}>
+            <div
+              className="carousel__img_container"
+              style={{
+                backgroundImage: `url(${item.image})`,
+              }}
+            >
+              {/* <img src={item.image} alt={item.description} /> */}
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
+  );
 }
 
 export default Carousel;
