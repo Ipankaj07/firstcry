@@ -1,9 +1,16 @@
-import React from 'react'
+import React from "react";
+import SubMenu from "../../components/Header/subMenu/SubMenu";
+import Carousel from "../../components/HomePageComponents/carousel/Carousel";
+import PremiumSection from "../../components/HomePageComponents/premium/PremiumSection";
 
 function HomePage() {
   return (
-    <div>HomePage</div>
-  )
+    <div>
+      <SubMenu />
+      <Carousel />
+      <PremiumSection />
+    </div>
+  );
 }
 
-export default HomePage
+export default HomePage;

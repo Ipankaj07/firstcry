@@ -1,4 +1,4 @@
-import NavBar from "./components/Header/NavBar";
+import NavBar from "./components/Header/navBar/NavBar";
 import AllRoutes from "./routes/AllRoutes";
 
 function App() {
