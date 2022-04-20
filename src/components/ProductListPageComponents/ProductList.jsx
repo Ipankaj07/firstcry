@@ -128,13 +128,11 @@ function ProductList() {
                       <p>Multiple Sizes Available</p>
                       <span className="product__rs org__rs">
                         <BiRupee />
-                        {item.price}
+                        {(item.price * (100 - item.discount)) / 100}
                       </span>
                       <span className="product__rs">
                         <BiRupee />
-                        <span className="dis__rs">
-                          {(item.price * (100 - item.discount)) / 100}
-                        </span>
+                        <span className="dis__rs">{item.price}</span>
                       </span>
 
                       <div className="product__club-block">
