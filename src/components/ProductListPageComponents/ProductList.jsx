@@ -6,7 +6,7 @@ import { BiRupee } from "react-icons/bi";
 
 import { useSelector, useDispatch } from "react-redux";
 import { fetchProductsData } from "../../redux/actions/productAction";
-import { v4 as uuidv4 } from "uuid";
+import { Link } from "react-router-dom";
 
 function ProductList() {
   const dispatch = useDispatch();
@@ -114,36 +114,38 @@ function ProductList() {
             {data.map((item) => (
               <div key={item._id}>
                 <div className="product__div">
-                  <div className="product__img">
-                    <img
-                      src={item.image}
-                      alt={item.name}
-                      className="product__img"
-                    />
-                  </div>
-
-                  <div className="product__title">
-                    <p>{item.name}</p>
-                    <p>Multiple Sizes Available</p>
-                    <span className="product__rs org__rs">
-                      <BiRupee />
-                      {item.price}
-                    </span>
-                    <span className="product__rs">
-                      <BiRupee />
-                      <span className="dis__rs">
-                        {(item.price * (100 - item.discount)) / 100}
-                      </span>
-                    </span>
-
-                    <div className="product__club-block">
-                      <span className="club-star-img"></span>
-                      <span className="club__pText">
-                        Club Price: <BiRupee />
-                        {item.price - item.discount}
-                      </span>
+                  <Link to={`/product/${item._id}`}>
+                    <div className="product__img">
+                      <img
+                        src={item.image}
+                        alt={item.name}
+                        className="product__img"
+                      />
                     </div>
-                  </div>
+
+                    <div className="product__title">
+                      <p>{item.name.split("-")[0]}</p>
+                      <p>Multiple Sizes Available</p>
+                      <span className="product__rs org__rs">
+                        <BiRupee />
+                        {item.price}
+                      </span>
+                      <span className="product__rs">
+                        <BiRupee />
+                        <span className="dis__rs">
+                          {(item.price * (100 - item.discount)) / 100}
+                        </span>
+                      </span>
+
+                      <div className="product__club-block">
+                        <span className="club-star-img"></span>
+                        <span className="club__pText">
+                          Club Price: <BiRupee />
+                          {item.price - item.discount}
+                        </span>
+                      </div>
+                    </div>
+                  </Link>
                 </div>
               </div>
             ))}
