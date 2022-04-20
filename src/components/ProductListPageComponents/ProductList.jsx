@@ -139,7 +139,9 @@ function ProductList() {
                         <span className="club-star-img"></span>
                         <span className="club__pText">
                           Club Price: <BiRupee />
-                          {item.price - item.discount}
+                          {(item.price * (100 - item.discount)) / 100 -
+                            Math.floor(Math.random() * (30 - 1 + 1)) +
+                            1}
                         </span>
                       </div>
                     </div>
