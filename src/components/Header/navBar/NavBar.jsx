@@ -13,10 +13,12 @@ function NavBar() {
         <div className="nav__container dis-flex">
           <div className="nav__1 dis-flex">
             <div className="logo__div">
-              <img
-                src="https://cdn.fcglcdn.com/brainbees/images/n/fc_logo.png"
-                alt="logo"
-              />
+              <Link to="/">
+                <img
+                  src="https://cdn.fcglcdn.com/brainbees/images/n/fc_logo.png"
+                  alt="logo"
+                />
+              </Link>
             </div>
             <div className="nav__searchBox">
               <input

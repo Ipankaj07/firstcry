@@ -18,3 +18,8 @@ a {
   text-decoration: none;
   color: #424242;
 }
+
+body {
+  background-image: url(//cdn.firstcry.com/brainbees/images/Premium-Boutique-pattern.jpg);
+  background-repeat: repeat;
+}
