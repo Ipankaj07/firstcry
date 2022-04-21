@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useParams, Link } from "react-router-dom";
 import "./productDetails.css";
 import { BiRupee } from "react-icons/bi";
+import { AiOutlineHeart } from "react-icons/ai";
 
 import { fetchProductById } from "../../../redux/actions/productAction";
 
@@ -44,6 +45,12 @@ function ProductDetail() {
         <div className="dis-flex">
           <div className="detail__left">
             <ProdImgContainer />
+
+            <div className="prodD__btn dis-flex">
+              <div className="btn__add-cart">ADD TO CART</div>
+              <div className="btn__add-short">< AiOutlineHeart className='hrtD__logo' /> SHORTLIST</div>
+            </div>
+            <div className="hr-line"></div>
           </div>
 
           <div className="detail__right">

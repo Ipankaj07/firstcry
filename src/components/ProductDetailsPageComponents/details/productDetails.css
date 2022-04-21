@@ -113,15 +113,60 @@
   cursor: pointer;
 }
 
-.prod__color, .prod__size {
+.prod__color,
+.prod__size {
   padding-bottom: 20px;
   font-size: 14px !important;
   color: #424242;
   line-height: 20px;
 }
 
-.prod__size span{
-    border: 1px solid #e0e0e0;
-    padding: 5px 10px;
-    border-radius: 5px;
+.prod__size span {
+  border: 1px solid #e0e0e0;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.prodD__btn {
+  margin-top: 8px;
+  gap:1.8rem;
+  margin-left: 5rem;
+}
+
+.prodD__btn div {
+  height: 46px;
+  width: 204px;
+  line-height: 47px;
+  border-radius: 3px;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn__add-cart {
+  background-color: #ff7043;
+  color: #fff;
+}
+
+.btn__add-cart:hover {
+  background-color: #ff943d;
+}
+
+.btn__add-short{
+    border: 1px solid #bdbdbd;
+    user-select: none;
+}
+
+.btn__add-short:hover {
+  color: #ff7043;
+  border-color: #ff7043!important;
+}
+
+
+.hrtD__logo{
+  position: relative;
+  font-size: 18px;
+  top: 3px;
 }
