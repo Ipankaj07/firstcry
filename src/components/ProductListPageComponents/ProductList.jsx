@@ -8,6 +8,15 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchProductsData } from "../../redux/actions/productAction";
 import { Link } from "react-router-dom";
 
+import FilterBySubCategory from "../ProductListPageComponents/caterogy/subCategory/FilterBySubCategory";
+import FilterByBrands from "../ProductListPageComponents/caterogy/brands/FilterByBrands";
+import FilterByDiscount from "../ProductListPageComponents/caterogy/discount/FilterByDiscount";
+import FilterByPrice from "../ProductListPageComponents/caterogy/price/FilterByPrice";
+import FilterByAge from "../ProductListPageComponents/caterogy/age/FilterByAge";
+import FilterByGender from "../ProductListPageComponents/caterogy/gender/FilterByGender";
+import FilterByColor from "../ProductListPageComponents/caterogy/color/FilterByColor";
+import FilterByMaterial from "../ProductListPageComponents/caterogy/material/FilterByMaterial";
+
 function ProductList() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -15,17 +24,12 @@ function ProductList() {
   }, [dispatch]);
 
   const data = useSelector((state) => state.product.products);
-  console.log("data", data);
+  // console.log("data", data);
 
-  /* 
-  
-  image: "https://cdn.fcglcdn.com/brainbees/images/products/438x531/9024891a.webp"
-  name: "Babyhug Half Sleeves Ice Cream Print Top with Shorts - Pink"
-  price: 599
-  discount: 39
-  _id: "625d8cf4dc53f428c7bff65c"
+/*   const filteredData = useSelector((state) => state.product.filteredProducts);
+  console.log("filtered - data", filteredData[0].productData); */
 
-  */
+  // const [showFilterOption, setShowFilterOption] = useState(false);
 
   return (
     <div>
@@ -86,8 +90,8 @@ function ProductList() {
         <div className="filter__tab">
           <div className="filter__option dis-flex">
             <div>Filter by:</div>
-            <div>Subcategory</div>
-            <div>Brands</div>
+            <div>Subcategory</div> {/* show subcategory option on click  */}
+            <div>Brands</div> {/* show brands caterogy option on click */}
             <div>Discount</div>
             <div>Price</div>
             <div>Age</div>
@@ -104,6 +108,11 @@ function ProductList() {
             <span className="check__btn">CHECK</span>
           </div>
         </div>
+
+        {/* filters options display : none / block  */}
+        <div className="filters__options">
+          <FilterBySubCategory />
+        </div>
       </div>
 
       {/* ---- product main container ----- */}
@@ -114,7 +123,7 @@ function ProductList() {
             {data.map((item) => (
               <div key={item._id}>
                 <div className="product__div">
-                  <Link to={`/product/${item._id}`}>
+                  <Link to={`/products/${item._id}`}>
                     <div className="product__img">
                       <img
                         src={item.image}

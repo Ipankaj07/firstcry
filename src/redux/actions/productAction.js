@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { FETCH_PRODUCTS, FILTER_PRODUCTS, UPDATE_PRODUCT } from '../../constants/productActionType';
+import { FETCH_PRODUCTS, FILTER_PRODUCTS, UPDATE_PRODUCT, FETCH_PRODUCTS_BY_ID } from '../../constants/productActionType';
 
 let appDBUrl = process.env.REACT_APP_DB_URL;
 
@@ -15,7 +15,7 @@ const fetchProductsData = () => async (dispatch) => {
     try {
         const response = await axios.get(`${appDBUrl}/products`);
         dispatch(getProductsData(response.data.product));
-        console.log('im from p-Action', response.data.product);
+        // console.log('im from p-Action', response.data.product);
     }
     catch (error) {
         console.log(error);
@@ -55,11 +55,32 @@ const filterProductsData = (
                     subCategory
                 }
             });
-            dispatch(filterProducts(res.data));
+            dispatch(filterProducts([res.data]));
             console.log(res.data);
         } catch (err) {
             console.log(err);
         }
     }
 
-export { fetchProductsData, filterProductsData };
+const getProductById = (data) => {
+    return {
+        type: FETCH_PRODUCTS_BY_ID,
+        payload: data
+    }
+}
+
+const fetchProductById = (id) => async (dispatch) => {
+    // console.log('id action', id);
+    try {
+        const res = await axios({
+            method: 'GET',
+            url: `${appDBUrl}/products/${id}`
+        });
+        dispatch(getProductById(res.data));
+        // console.log("data action", res.data);
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+export { fetchProductsData, filterProductsData, getProductById, fetchProductById };

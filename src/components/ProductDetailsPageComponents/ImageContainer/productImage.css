@@ -1,0 +1,9 @@
+.left__pictures img {
+  width: 100%;
+  margin-bottom: 0.6rem;
+}
+
+.right__pictures img {
+  width: fit-content;
+  padding:0 0.8rem 0 0.6rem;
+}

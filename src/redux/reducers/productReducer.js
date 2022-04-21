@@ -1,10 +1,11 @@
-import { FETCH_PRODUCTS, FILTER_PRODUCTS, UPDATE_PRODUCT } from '../../constants/productActionType';
+import { FETCH_PRODUCTS, FILTER_PRODUCTS, UPDATE_PRODUCT, FETCH_PRODUCTS_BY_ID } from '../../constants/productActionType';
 
 const initState = {
     products: [],
     filteredProducts: [],
     isLoading: false,
     isError: false,
+    productById: {}
 }
 
 const productReducer = (state = initState, action) => {
@@ -23,6 +24,15 @@ const productReducer = (state = initState, action) => {
                 loading: false,
                 isError: false
             }
+        case FETCH_PRODUCTS_BY_ID:
+            return {
+                ...state,
+                productById: { ...action.payload },
+                loading: false,
+                isError: false
+            }
+
+
         default:
             return state;
     }
