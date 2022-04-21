@@ -55,8 +55,8 @@ const filterProductsData = (
                     subCategory
                 }
             });
-            dispatch(filterProducts([res.data]));
-            console.log(`data action`, res.data);
+            dispatch(filterProducts(res.data));
+            // console.log(`data action`, res.data);
         } catch (err) {
             console.log(err);
         }

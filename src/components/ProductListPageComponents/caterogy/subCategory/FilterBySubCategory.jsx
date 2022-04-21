@@ -1,4 +1,4 @@
-import React, { useState, useEffect , useRef} from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import "../filterProducts.css";
 
@@ -7,9 +7,10 @@ import { filterProductsData } from "../../../../redux/actions/productAction";
 function FilterBySubCategory() {
   const dispatch = useDispatch();
 
-  // const data = useSelector((state) => state.product.filteredProducts);
-  // console.log("data", data);
-
+  // const data1 = useSelector((state) => state.product.filteredProducts);
+  // console.log("data", data1);
+  // const data2 = useSelector((state) => state.product.products);
+  // console.log("data", data2);
 
   const handleOnchange = (e) => {
     console.log("e.target.value", e.target.value);
@@ -17,9 +18,7 @@ function FilterBySubCategory() {
   };
 
   useEffect(() => {
-    return () => {
-      dispatch(filterProductsData());
-    };
+    dispatch(filterProductsData());
   }, [dispatch]);
 
   return (
