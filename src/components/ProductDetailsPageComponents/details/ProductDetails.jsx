@@ -33,7 +33,11 @@ function ProductDetail() {
             <Link to="/" className="pd_home">
               Home
             </Link>
-            / Premium / <span>{data.name}</span>
+            /
+            <Link to="/products" className="pd_home">
+              Premium Boutiques
+            </Link>
+            / <span>{data.name}</span>
           </div>
         </div>
 
@@ -49,7 +53,7 @@ function ProductDetail() {
             <div className="prod__price dis-flex">
               <div className="prod__price__discount dis-flex">
                 <BiRupee className="r__logo" />
-                {data.price}
+                {(data.price * (100 - data.discount)) / 100}
               </div>
               <div className="prod__price__original dis-flex">
                 MRP: <BiRupee className="r__logo" /> <span>{data.price}</span>
@@ -72,7 +76,10 @@ function ProductDetail() {
                 <div>
                   <span>Club Price:</span>
                   <span>
-                    <BiRupee /> {data.price}
+                    <BiRupee />
+                    {(data.price * (100 - data.discount)) / 100 -
+                      Math.floor(Math.random() * (30 - 1 + 1)) +
+                      1}
                   </span>
                 </div>
                 <div>

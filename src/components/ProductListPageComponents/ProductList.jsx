@@ -26,7 +26,7 @@ function ProductList() {
   const data = useSelector((state) => state.product.products);
   // console.log("data", data);
 
-/*   const filteredData = useSelector((state) => state.product.filteredProducts);
+  /*   const filteredData = useSelector((state) => state.product.filteredProducts);
   console.log("filtered - data", filteredData[0].productData); */
 
   // const [showFilterOption, setShowFilterOption] = useState(false);
@@ -56,7 +56,7 @@ function ProductList() {
           <div className="filter__head dis-flex">
             <div className="filter__left dis-flex">
               <div>Own the Looks</div>
-              <div>(54 Results)</div>
+              <div>(34 Results)</div>
             </div>
             <div className="filter__right dis-flex">
               <div className="filter__sort dis-flex">
@@ -90,8 +90,8 @@ function ProductList() {
         <div className="filter__tab">
           <div className="filter__option dis-flex">
             <div>Filter by:</div>
-            <div>Subcategory</div> 
-            <div>Brands</div> 
+            <div>Subcategory</div>
+            <div>Brands</div>
             <div>Discount</div>
             <div>Price</div>
             <div>Age</div>
@@ -112,6 +112,13 @@ function ProductList() {
         {/* filters options */}
         <div className="filters__options">
           <FilterBySubCategory />
+          <FilterByBrands />
+          <FilterByDiscount />
+          <FilterByPrice />
+          <FilterByAge />
+          <FilterByGender />
+          <FilterByColor />
+          <FilterByMaterial />
         </div>
       </div>
 

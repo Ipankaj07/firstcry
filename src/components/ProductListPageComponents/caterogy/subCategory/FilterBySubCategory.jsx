@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import "../filterProducts.css";
 
 import { filterProductsData } from "../../../../redux/actions/productAction";
@@ -14,7 +14,9 @@ function FilterBySubCategory() {
 
   const handleOnchange = (e) => {
     console.log("e.target.value", e.target.value);
-    dispatch(filterProductsData("", "", "", "", "", "", "", e.target.value));
+    dispatch(
+      filterProductsData("", "", "", "", "", "", "", e.target.value, "")
+    );
   };
 
   useEffect(() => {

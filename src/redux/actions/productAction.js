@@ -39,7 +39,8 @@ const filterProductsData = (
     age,
     color,
     material,
-    subCategory) => async (dispatch) => {
+    subCategory,
+    gender) => async (dispatch) => {
         try {
             const res = await axios({
                 method: 'GET',
@@ -52,7 +53,8 @@ const filterProductsData = (
                     age,
                     color,
                     material,
-                    subCategory
+                    subCategory,
+                    gender
                 }
             });
             dispatch(filterProducts(res.data));
