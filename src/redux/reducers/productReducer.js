@@ -20,7 +20,8 @@ const productReducer = (state = initState, action) => {
         case FILTER_PRODUCTS:
             return {
                 ...state,
-                filteredProducts: [...action.payload],
+                // filteredProducts: [...action.payload],
+                products : [...action.payload],
                 loading: false,
                 isError: false
             }

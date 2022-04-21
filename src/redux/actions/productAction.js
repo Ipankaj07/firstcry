@@ -56,7 +56,7 @@ const filterProductsData = (
                 }
             });
             dispatch(filterProducts([res.data]));
-            console.log(res.data);
+            console.log(`data action`, res.data);
         } catch (err) {
             console.log(err);
         }

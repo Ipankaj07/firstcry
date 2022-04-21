@@ -90,8 +90,8 @@ function ProductList() {
         <div className="filter__tab">
           <div className="filter__option dis-flex">
             <div>Filter by:</div>
-            <div>Subcategory</div> {/* show subcategory option on click  */}
-            <div>Brands</div> {/* show brands caterogy option on click */}
+            <div>Subcategory</div> 
+            <div>Brands</div> 
             <div>Discount</div>
             <div>Price</div>
             <div>Age</div>
@@ -109,7 +109,7 @@ function ProductList() {
           </div>
         </div>
 
-        {/* filters options display : none / block  */}
+        {/* filters options */}
         <div className="filters__options">
           <FilterBySubCategory />
         </div>
