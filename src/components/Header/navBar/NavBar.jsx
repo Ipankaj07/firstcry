@@ -52,7 +52,10 @@ function NavBar() {
                 <Link to="/">FirstCry Parenting</Link>
               </div>
               <div className="nav__listItem">
-                <Link to="/">Login / Register</Link>
+                <Link to="/login">Login</Link>
+              </div>
+              <div className="nav__listItem">
+                <Link to="/signup">Register</Link>
               </div>
               <div className="nav__listItem dis-flex">
                 <AiOutlineHeart className="nav__icon heart" />
