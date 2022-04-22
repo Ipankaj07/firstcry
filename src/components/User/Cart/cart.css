@@ -51,3 +51,8 @@ border-right: 1px solid #e6e6e6;
 .cart__item__price{
   padding: 0 2rem 0 4rem;
 }
+
+.rs__logo{
+  position:relative;
+  top: 4px;
+}

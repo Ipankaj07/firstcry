@@ -2,8 +2,9 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import "./cart.css";
-import { useDispatch } from "react-redux";
+import { BiRupee } from "react-icons/bi";
 
+import { useDispatch } from "react-redux";
 import { removeProductFromCart } from "../../../redux/actions/userAction";
 
 function Cart() {
@@ -35,7 +36,6 @@ function Cart() {
     return allProduct.find((product) => product._id === item);
   });
 
-  //from this data store two things product and count of product
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -57,12 +57,6 @@ function Cart() {
 
   console.log("cartData ", cartData);
 
-  // let totalprice = cartData.reduce((acc, curr) => {
-  //   return acc + (curr.price * (100 - curr.discount)) / 100;
-  // }, 0);
-
-  // console.log("totalPrice ", totalprice);
-
   return (
     <div className="dis-flex" style={{ padding: "3rem", color: "#fff" }}>
       {/* <pre>{JSON.stringify(cartData, null, 2)}</pre> */}
@@ -81,21 +75,19 @@ function Cart() {
                   style={{
                     backgroundImage: `url(${item.image})`,
                   }}
-                >
-                  {/* <img src={item.image} alt={item.name} /> */}
-                </div>
+                ></div>
                 <div className="cart__right">
                   <div className="cart__item__name">
                     <h3>{item.name}</h3>
                   </div>
                   <div className="cart__item__price">
                     <h3>
-                      Price : {(item.price * (100 - item.discount)) / 100}
+                      Price : <BiRupee className='rs__logo'/> {(item.price * (100 - item.discount)) / 100}
                       <span className="span_price">
                         {" "}
                         ({item.discount}% OFF){" "}
                       </span>
-                      <span className="span_price ori">{item.price}</span>
+                      <span className="span_price ori"> <BiRupee className='rs__logo'/>  {item.price}</span>
                     </h3>
 
                     <div
@@ -119,10 +111,12 @@ function Cart() {
         ) : (
           <div>
             <h3>
-              Total Price :   
-              {cartData.reduce((acc, curr) => {
-                return acc + (curr.price * (100 - curr.discount)) / 100;
-              }, 0)}
+              Total Price : <BiRupee className='rs__logo'/> 
+              {parseFloat(
+                cartData.reduce((acc, curr) => {
+                  return acc + (curr.price * (100 - curr.discount)) / 100;
+                }, 0)
+              ).toFixed(2)}
             </h3>
             <div className="btn__remove-cart">checkout</div>
           </div>
