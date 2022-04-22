@@ -7,6 +7,7 @@ import ProductDetailPage from "../pages/ProductDetailPage/ProductDetailPage";
 import Login from "../components/User/Login/Login";
 import SignUp from "../components/User/Signup/SignUp";
 import Cart from "../components/User/Cart/Cart";
+import Checkout from "../components/Checkout/Checkout";
 
 function AllRoutes() {
     return (
@@ -17,6 +18,8 @@ function AllRoutes() {
             <Route path="/products" element={<ProductListPage />} />
             <Route path="/products/:id" element={<ProductDetailPage />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="*" element={<div className="foF" ><h1> 404 | Page Not Found </h1> </div>} />
         </Routes>
     )
 }

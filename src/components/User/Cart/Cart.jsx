@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import "./cart.css";
 import { BiRupee } from "react-icons/bi";
+import { useNavigate } from "react-router-dom";
 
 import { useDispatch } from "react-redux";
 import { removeProductFromCart } from "../../../redux/actions/userAction";
@@ -57,8 +58,15 @@ function Cart() {
 
   console.log("cartData ", cartData);
 
+  let [checkoutBtnText, setCheckoutBtnText] = useState("Checkout");
+
+  const navigate = useNavigate();
+
   return (
-    <div className="dis-flex cart__container" style={{ padding: "3rem", color: "#fff" }}>
+    <div
+      className="dis-flex cart__container"
+      style={{ padding: "3rem", color: "#fff" }}
+    >
       {/* <pre>{JSON.stringify(cartData, null, 2)}</pre> */}
 
       <div className="cart__div">
@@ -82,12 +90,12 @@ function Cart() {
                   </div>
                   <div className="cart__item__price">
                     <h3>
-                      Price : <BiRupee className='rs__logo'/> {(item.price * (100 - item.discount)) / 100}
-                      <span className="span_price">
-                        {" "}
-                        ({item.discount}% OFF){" "}
+                      Price : <BiRupee className="rs__logo" />{" "}
+                      {(item.price * (100 - item.discount)) / 100}
+                      <span className="span_price">({item.discount}% OFF)</span>
+                      <span className="span_price ori">
+                        <BiRupee className="rs__logo" /> {item.price}
                       </span>
-                      <span className="span_price ori"> <BiRupee className='rs__logo'/>  {item.price}</span>
                     </h3>
 
                     <div
@@ -111,14 +119,27 @@ function Cart() {
         ) : (
           <div>
             <h3>
-              Total Price : <BiRupee className='rs__logo'/> 
+              Total Price : <BiRupee className="rs__logo" />
               {parseFloat(
                 cartData.reduce((acc, curr) => {
                   return acc + (curr.price * (100 - curr.discount)) / 100;
                 }, 0)
               ).toFixed(2)}
             </h3>
-            <div className="btn__remove-cart">checkout</div>
+            <div
+              className="btn__remove-cart"
+              onClick={() => {
+                setCheckoutBtnText("Loading...");
+                setTimeout(() => {
+                  setCheckoutBtnText("Payment Processing...");
+                  setTimeout(() => {
+                    navigate("/checkout");
+                  }, 2000);
+                }, 1000);
+              }}
+            >
+              {checkoutBtnText}
+            </div>
           </div>
         )}
       </div>

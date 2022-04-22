@@ -23,3 +23,11 @@ body {
   background-image: url(https://cdn.firstcry.com/brainbees/images/Premium-Boutique-pattern.jpg);
   background-repeat: repeat;
 }
+
+.foF {
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
