@@ -103,6 +103,7 @@ const removeProductFromCart = (
     productId,
     userId
 ) => async (dispatch) => {
+    console.log(productId, userId);
     try {
         const res = await axios({
             method: 'PATCH',
@@ -114,6 +115,7 @@ const removeProductFromCart = (
         });
         let userData = res.data.data;
         dispatch(loginUser(userData));
+        
         console.log("add product to cart", res.data.data);
     }
     catch (error) {
