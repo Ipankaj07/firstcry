@@ -58,7 +58,7 @@ function Cart() {
   console.log("cartData ", cartData);
 
   return (
-    <div className="dis-flex" style={{ padding: "3rem", color: "#fff" }}>
+    <div className="dis-flex cart__container" style={{ padding: "3rem", color: "#fff" }}>
       {/* <pre>{JSON.stringify(cartData, null, 2)}</pre> */}
 
       <div className="cart__div">
@@ -103,7 +103,7 @@ function Cart() {
           })
         )}
       </div>
-      <div className="cart__item__price">
+      <div className="cart__item__price2">
         {loading ? (
           <div className="cart__div__loading">
             <h1>Loading...</h1>

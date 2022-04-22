@@ -1,5 +1,10 @@
-.cart__div{
-border-right: 1px solid #e6e6e6;
+.cart__div {
+  border-right: 1px solid #e6e6e6;
+  position: relative;
+}
+
+.cart__container {
+  position: relative;
 }
 
 .cart__div__item {
@@ -48,11 +53,14 @@ border-right: 1px solid #e6e6e6;
   opacity: 0.5;
 }
 
-.cart__item__price{
+.cart__item__price2 {
   padding: 0 2rem 0 4rem;
+  height: 100vh;
+  position: sticky;
+  top: 10px;
 }
 
-.rs__logo{
-  position:relative;
+.rs__logo {
+  position: relative;
   top: 4px;
 }
