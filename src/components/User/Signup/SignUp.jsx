@@ -26,35 +26,65 @@ function SignUp() {
   };
 
   return (
-    <div>
-      <h3>SignUp Page</h3>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="First Name"
-          value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
+    <div
+      style={{ backgroundColor: "#fff", minHeight: "90vh", marginTop: "-24px" }}
+    >
+      <div className="comm-header">
+        <img
+          src="https://cdn.fcglcdn.com/brainbees/images/n/fc-logo-s.jpg"
+          alt="Logo"
+          className="img__logo"
+          onClick={() => {
+            navigate("/");
+          }}
         />
-        <input
-          type="text"
-          placeholder="Last Name"
-          value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
-        />
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button type="submit">SignUp</button>
-      </form>
+
+        <section className="login__section">
+          <div className="login__div">
+            <p className=" login__heading">Register</p>
+            <form onSubmit={handleSubmit}>
+              <input
+                type="text"
+                placeholder="First Name"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+              />
+              <input
+                type="text"
+                placeholder="Last Name"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+              />
+              <input
+                type="email"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <input
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <div>
+                <button type="submit">Register</button>
+              </div>
+              <div className="l__fot dis-flex">
+                <div>If you already have an account, please</div>
+                <div
+                  className="navig__signup"
+                  onClick={() => {
+                    navigate("/login");
+                  }}
+                >
+                  Login
+                </div>
+              </div>
+            </form>
+          </div>
+        </section>
+      </div>
     </div>
   );
 }

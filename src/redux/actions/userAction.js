@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { SIGNUP, LOGIN_USER, PRODUCT_TO_CART } from '../../constants/userActionType';
+import { SIGNUP, LOGIN_USER } from '../../constants/userActionType';
 
 let appDBUrl = process.env.REACT_APP_DB_URL;
 
@@ -27,7 +27,11 @@ const signupUserData = (
                 password
             }
         });
-        dispatch(signupUser(res.data));
+        let userData = res.data.user;
+        dispatch(signupUser(userData));
+        localStorage.setItem('userId', JSON.stringify(userData._id));
+        localStorage.setItem("isUserLogedIn", true);
+        localStorage.setItem("userName", JSON.stringify(userData.firstName + " " + userData.lastName));
     }
     catch (error) {
         console.log(error);
@@ -61,16 +65,11 @@ const loginUserData = (
         dispatch(loginUser(userData));
         // console.log("login data Action", userData._id);
         localStorage.setItem('userId', JSON.stringify(userData._id));
+        localStorage.setItem("isUserLogedIn", true);
+        localStorage.setItem("userName", JSON.stringify(userData.firstName + " " + userData.lastName));
     }
     catch (error) {
         console.log(error.message);
-    }
-}
-
-const productTocart = (data) => {
-    return {
-        type: PRODUCT_TO_CART,
-        payload: data
     }
 }
 
@@ -78,16 +77,22 @@ const addProductTocartData = (
     productId,
     userId
 ) => async (dispatch) => {
+    console.log(productId, userId);
     try {
         const res = await axios({
-            method: 'POST',
-            url: `${appDBUrl}/users/add/cart`,
+            method: 'PATCH',
+            url: `${appDBUrl}/users/cart/add`,
             data: {
                 productId,
                 userId
             }
         });
-        dispatch(productTocart(res.data));
+        let userData = res.data.data;
+        // console.log("add product to cart", userData.cart);
+        // dispatch(productTocart(userData.cart));
+
+        dispatch(loginUser(userData));
+        console.log("add product to cart", res.data.data);
     }
     catch (error) {
         console.log(error);
@@ -100,14 +105,16 @@ const removeProductFromCart = (
 ) => async (dispatch) => {
     try {
         const res = await axios({
-            method: 'POST',
-            url: `${appDBUrl}/users/remove/cart`,
+            method: 'PATCH',
+            url: `${appDBUrl}/users/cart/remove`,
             data: {
                 productId,
                 userId
             }
         });
-        dispatch(productTocart(res.data));
+        let userData = res.data.data;
+        dispatch(loginUser(userData));
+        console.log("add product to cart", res.data.data);
     }
     catch (error) {
         console.log(error);
@@ -117,7 +124,6 @@ const removeProductFromCart = (
 export {
     signupUserData,
     loginUserData,
-    productTocart,
     addProductTocartData,
     removeProductFromCart
 }

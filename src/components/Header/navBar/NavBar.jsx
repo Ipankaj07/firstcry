@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./navbar.css";
 import { BiSearch } from "react-icons/bi";
@@ -7,6 +7,15 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { BsCart } from "react-icons/bs";
 
 function NavBar() {
+  let isUserLogedIn = localStorage.getItem("isUserLogedIn");
+  let userName = localStorage.getItem("userName");
+
+  useEffect(() => {
+    if (isUserLogedIn) {
+      console.log("user is loged in");
+    }
+  }, [isUserLogedIn, userName]);
+
   return (
     <>
       <div className="navbar">
@@ -52,18 +61,22 @@ function NavBar() {
                 <Link to="/">FirstCry Parenting</Link>
               </div>
               <div className="nav__listItem">
-                <Link to="/login">Login</Link>
-              </div>
-              <div className="nav__listItem">
-                <Link to="/signup">Register</Link>
+                {isUserLogedIn ? (
+                  <span className="user__name">{userName}</span>
+                ) : (
+                  <Link to="/login">Login/Register</Link>
+                )}
+                {/* <Link to="/login">Login/Register</Link> */}
               </div>
               <div className="nav__listItem dis-flex">
                 <AiOutlineHeart className="nav__icon heart" />
                 <Link to="/">Shortlist</Link>
               </div>
               <div className="nav__listItem dis-flex">
-                <BsCart className="nav__icon cart" />
-                <Link to="/">Cart</Link>
+                <Link to="/cart" className="dis-flex">
+                  <BsCart className="nav__icon cart" />
+                  Cart
+                </Link>
               </div>
             </div>
           </div>

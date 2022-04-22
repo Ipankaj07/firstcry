@@ -6,11 +6,13 @@ import { BiRupee } from "react-icons/bi";
 import { AiOutlineHeart } from "react-icons/ai";
 
 import { fetchProductById } from "../../../redux/actions/productAction";
+import { addProductTocartData } from "../../../redux/actions/userAction";
 
 import ProdImgContainer from "../ImageContainer/ProductImage";
 
 function ProductDetail() {
   const { id } = useParams();
+  let userId = JSON.parse(localStorage.getItem("userId"));
 
   const dispatch = useDispatch();
 
@@ -47,8 +49,15 @@ function ProductDetail() {
             <ProdImgContainer />
 
             <div className="prodD__btn dis-flex">
-              <div className="btn__add-cart">ADD TO CART</div>
-              <div className="btn__add-short">< AiOutlineHeart className='hrtD__logo' /> SHORTLIST</div>
+              <div
+                className="btn__add-cart"
+                onClick={() => dispatch(addProductTocartData(id, userId))}
+              >
+                ADD TO CART
+              </div>
+              <div className="btn__add-short">
+                <AiOutlineHeart className="hrtD__logo" /> SHORTLIST
+              </div>
             </div>
             <div className="hr-line"></div>
           </div>

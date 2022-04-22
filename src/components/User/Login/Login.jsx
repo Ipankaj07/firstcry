@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import "./login.css";
@@ -13,18 +13,23 @@ function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+    // const data = useSelector((state) => state.user.user);
+    // console.log("data ", data);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(loginUserData(email, password));
     setEmail("");
     setPassword("");
-    // setTimeout(() => {
-    //   navigate("/");
-    // }, 1000);
+    setTimeout(() => {
+      navigate("/");
+    }, 1000);
   };
 
   return (
-    <div style={{ backgroundColor: "#fff" }}>
+    <div
+      style={{ backgroundColor: "#fff", minHeight: "90vh", marginTop: "-24px" }}
+    >
       <div className="comm-header">
         <img
           src="https://cdn.fcglcdn.com/brainbees/images/n/fc-logo-s.jpg"
@@ -53,6 +58,17 @@ function Login() {
               />
               <div>
                 <button type="submit">Login</button>
+              </div>
+              <div className='l__fot dis-flex' >
+                <div>If you don't have an account, please</div>
+                <div
+                  className="navig__signup"
+                  onClick={() => {
+                    navigate("/signup");
+                  }}
+                >
+                  Register Here
+                </div>
               </div>
             </form>
           </div>

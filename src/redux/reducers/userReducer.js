@@ -1,8 +1,7 @@
-import { SIGNUP, LOGIN_USER, PRODUCT_TO_CART } from '../../constants/userActionType';
+import { SIGNUP, LOGIN_USER } from '../../constants/userActionType';
 
 const initState = {
-    user: {},
-    cart: [],
+    user: [],
     isLoggedIn: false,
     isLoading: false,
     isError: false
@@ -23,13 +22,6 @@ const userReducer = (state = initState, action) => {
                 ...state,
                 user: action.payload,
                 isLoggedIn: true,
-                isLoading: false,
-                isError: false
-            }
-        case PRODUCT_TO_CART:
-            return {
-                ...state,
-                cart: action.payload,
                 isLoading: false,
                 isError: false
             }
