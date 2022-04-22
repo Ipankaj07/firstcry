@@ -23,7 +23,7 @@ function ProdImgContainer() {
     });
   });
 
-  console.log("imageData", imageData);
+  // console.log("imageData", imageData);
 
   return (
     <div>

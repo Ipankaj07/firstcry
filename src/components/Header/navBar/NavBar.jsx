@@ -12,7 +12,7 @@ function NavBar() {
 
   useEffect(() => {
     if (isUserLogedIn) {
-      console.log("user is loged in");
+      // console.log("user is loged in");
     }
   }, [isUserLogedIn, userName]);
 

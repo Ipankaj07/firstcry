@@ -50,7 +50,7 @@ const loginUserData = (
     password
 ) => async (dispatch) => {
 
-    console.log(email, password);
+    // console.log(email, password);
 
     try {
         const res = await axios({
@@ -77,7 +77,7 @@ const addProductTocartData = (
     productId,
     userId
 ) => async (dispatch) => {
-    console.log(productId, userId);
+    // console.log(productId, userId);
     try {
         const res = await axios({
             method: 'PATCH',
@@ -92,7 +92,7 @@ const addProductTocartData = (
         // dispatch(productTocart(userData.cart));
 
         dispatch(loginUser(userData));
-        console.log("add product to cart", res.data.data);
+        // console.log("add product to cart", res.data.data);
     }
     catch (error) {
         console.log(error);
@@ -103,7 +103,7 @@ const removeProductFromCart = (
     productId,
     userId
 ) => async (dispatch) => {
-    console.log(productId, userId);
+    // console.log(productId, userId);
     try {
         const res = await axios({
             method: 'PATCH',
@@ -116,7 +116,7 @@ const removeProductFromCart = (
         let userData = res.data.data;
         dispatch(loginUser(userData));
         
-        console.log("add product to cart", res.data.data);
+        // console.log("add product to cart", res.data.data);
     }
     catch (error) {
         console.log(error);

@@ -10,7 +10,7 @@ import { removeProductFromCart } from "../../../redux/actions/userAction";
 
 function Cart() {
   let userId = JSON.parse(localStorage.getItem("userId"));
-  console.log("userId ", userId);
+  // console.log("userId ", userId);
 
   const dispatch = useDispatch();
 
@@ -56,7 +56,7 @@ function Cart() {
     setLoading(false);
   };
 
-  console.log("cartData ", cartData);
+  // console.log("cartData ", cartData);
 
   let [checkoutBtnText, setCheckoutBtnText] = useState("Checkout");
 

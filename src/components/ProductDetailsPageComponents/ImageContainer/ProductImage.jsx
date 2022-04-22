@@ -7,7 +7,7 @@ import { fetchProductById } from "../../../redux/actions/productAction";
 
 function ProdImgContainer() {
   const { id } = useParams();
-  console.log("id", id);
+  // console.log("id", id);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -29,12 +29,12 @@ function ProdImgContainer() {
       .split("")
       .slice(0, -1)
       .join("");
-    console.log("imageData", imageData);
+    // console.log("imageData", imageData);
     let alpha = ["a", "b", "c", "d"];
     let imageArray = alpha.map((item) => {
       return `${imageData}${item}.webp`;
     });
-    console.log("imageArray", imageArray);
+    // console.log("imageArray", imageArray);
     return (
       <div className="prod__img dis-flex">
         <div className="left__pictures">

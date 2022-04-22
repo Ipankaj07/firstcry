@@ -8,7 +8,7 @@ function FilterByGender() {
   const dispatch = useDispatch();
 
   const handleOnchange = (e) => {
-    console.log("e.target.value", e.target.value);
+    // console.log("e.target.value", e.target.value);
     dispatch(
       filterProductsData("", "", "", "", "", "", "", "", e.target.value)
     );

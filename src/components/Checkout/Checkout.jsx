@@ -5,14 +5,14 @@ import { Link } from "react-router-dom";
 function Checkout() {
   return (
     <div>
-      <div class="gif-container">
+      <div className="gif-container">
         <img
           src="https://media.geeksforgeeks.org/wp-content/uploads/20201129221326/abc.gif"
           alt=".."
         />
-        <div class="home__option">
+        <div className="home__option">
           <Link to="/">
-            <div class="home__option__btn">Home</div>
+            <div className="home__option__btn">Home</div>
           </Link>
         </div>
       </div>
