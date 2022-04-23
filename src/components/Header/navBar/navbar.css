@@ -99,3 +99,12 @@
   top: -9px;
   color: #616161;
 }
+
+.cart__number {
+  position: relative;
+  top: 0px;
+  right: 1.6rem;
+  color: #ff7043;
+  font-size: 0.9rem;
+  font-weight: bold;
+}

@@ -7,7 +7,7 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { BsCart } from "react-icons/bs";
 
 import { DebounceInput } from "react-debounce-input";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { filterProductsData } from "../../../../src/redux/actions/productAction";
 
@@ -22,6 +22,8 @@ function NavBar() {
   }, [isUserLogedIn, userName]);
 
   const dispatch = useDispatch();
+
+  const cartNumber = useSelector((state) => state.product.cart);
 
   return (
     <>
@@ -99,6 +101,9 @@ function NavBar() {
               <div className="nav__listItem dis-flex">
                 <Link to="/cart" className="dis-flex">
                   <BsCart className="nav__icon cart" />
+                  <div className="cart__number">
+                    {cartNumber ? cartNumber : 0}
+                  </div>
                   Cart
                 </Link>
               </div>

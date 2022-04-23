@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 import { useDispatch } from "react-redux";
 import { removeProductFromCart } from "../../../redux/actions/userAction";
+import { updateCartNumber } from "../../../redux/actions/productAction";
 
 function Cart() {
   let userId = JSON.parse(localStorage.getItem("userId"));
@@ -56,6 +57,10 @@ function Cart() {
     allProductData();
     setLoad(true);
   }, [dispatch, load]);
+
+  useEffect(() => {
+    dispatch(updateCartNumber(cartData.length));
+  }, [cartData, dispatch]);
 
   const removeProduct = (productId, userId) => {
     dispatch(removeProductFromCart(productId, userId));

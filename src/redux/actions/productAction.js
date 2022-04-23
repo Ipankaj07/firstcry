@@ -85,4 +85,12 @@ const fetchProductById = (id) => async (dispatch) => {
     }
 }
 
-export { fetchProductsData, filterProductsData, getProductById, fetchProductById };
+const updateCartNumber = (data) => {
+    return {
+        type: UPDATE_PRODUCT,
+        payload: data
+    }
+}
+
+
+export { updateCartNumber, fetchProductsData, filterProductsData, getProductById, fetchProductById };

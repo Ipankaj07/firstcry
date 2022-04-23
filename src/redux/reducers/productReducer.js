@@ -5,7 +5,8 @@ const initState = {
     filteredProducts: [],
     isLoading: false,
     isError: false,
-    productById: {}
+    productById: {},
+    cart: 0,
 }
 
 const productReducer = (state = initState, action) => {
@@ -21,7 +22,7 @@ const productReducer = (state = initState, action) => {
             return {
                 ...state,
                 // filteredProducts: [...action.payload],
-                products : [...action.payload],
+                products: [...action.payload],
                 loading: false,
                 isError: false
             }
@@ -33,7 +34,11 @@ const productReducer = (state = initState, action) => {
                 isError: false
             }
 
-
+        case UPDATE_PRODUCT:
+            return {
+                ...state,
+                cart: action.payload,
+            }
         default:
             return state;
     }
