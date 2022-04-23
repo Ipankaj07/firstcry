@@ -6,6 +6,11 @@ import { VscLocation } from "react-icons/vsc";
 import { AiOutlineHeart } from "react-icons/ai";
 import { BsCart } from "react-icons/bs";
 
+import { DebounceInput } from "react-debounce-input";
+import { useDispatch } from "react-redux";
+
+import { filterProductsData } from "../../../../src/redux/actions/productAction";
+
 function NavBar() {
   let isUserLogedIn = localStorage.getItem("isUserLogedIn");
   let userName = localStorage.getItem("userName");
@@ -15,6 +20,8 @@ function NavBar() {
       // console.log("user is loged in");
     }
   }, [isUserLogedIn, userName]);
+
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -30,10 +37,27 @@ function NavBar() {
               </Link>
             </div>
             <div className="nav__searchBox">
-              <input
+              <DebounceInput
+                minLength={2}
+                debounceTimeout={300}
+                id="search__box"
                 type="text"
                 placeholder="Search for a Category, Brand or Product"
-                id="search__box"
+                onChange={(e) => {
+                  dispatch(
+                    filterProductsData(
+                      e.target.value,
+                      "",
+                      "",
+                      "",
+                      "",
+                      "",
+                      "",
+                      "",
+                      ""
+                    )
+                  );
+                }}
               />
               <BiSearch className="search__icon" />
             </div>
