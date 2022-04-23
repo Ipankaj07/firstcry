@@ -38,22 +38,27 @@ function Cart() {
   });
 
   const [loading, setLoading] = useState(true);
+  const [load, setLoad] = useState(true);
 
   useEffect(() => {
     if (cartData[0] !== undefined) {
       setLoading(false);
     }
-  }, [cartData]);
+  }, [cartData, dispatch]);
 
   useEffect(() => {
     cartDataIdArr();
     allProductData();
   }, []);
 
+  useEffect(() => {
+    cartDataIdArr();
+    allProductData();
+    setLoad(true);
+  }, [dispatch, load]);
+
   const removeProduct = (productId, userId) => {
-    setLoading(true);
     dispatch(removeProductFromCart(productId, userId));
-    setLoading(false);
   };
 
   // console.log("cartData ", cartData);
@@ -100,7 +105,10 @@ function Cart() {
 
                     <div
                       className="btn__remove-cart"
-                      onClick={() => removeProduct(item._id, userId)}
+                      onClick={() => {
+                        removeProduct(item._id, userId);
+                        setLoad(false);
+                      }}
                     >
                       REMOVE FROM CART
                     </div>
