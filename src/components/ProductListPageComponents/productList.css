@@ -1,291 +1,302 @@
 .banner__containt {
-    padding-top: 20px;
-    padding-bottom: 15px;
-    width: 1253px;
-    margin: 0 auto;
-    z-index: 2;
-    justify-content: space-between;
-  }
-  
-  .banner__div {
-    box-shadow: 0 0 0 1px #fff;
-    background-color: #fff;
-  }
-  
-  .banner__text1 {
-    font-size: 13px;
-    color: #3d3d3d;
-  }
-  
-  .banner__text2 {
-    font-size: 15px;
-    color: #dd5808;
-  }
-  
-  .banner__img {
-    overflow: hidden;
-    height: 295px;
-    background-image: url("https://cdn.fcglcdn.com/brainbees/images/boutique/tileimages/26305.webp");
-    background-repeat: repeat-x;
-  }
-  
-  .banner__img > div {
-    width: 994px;
-    margin: 0 auto;
-  }
-  
-  /* -------- filter --------- */
-  
-  .filter__container {
-    background-color: #373737;
-  }
-  
-  .filter__head {
-    padding: 0 50px;
-    height: 47px;
-    line-height: 47px;
-    background-color: #3d3d3d;
-    border: 1px solid #2d2d2d;
-    justify-content: space-between;
-  }
-  
-  .filter__left div:nth-child(1) {
-    font-size: 15px;
-    color: #fdfdfd;
-    margin-right: 10px;
-  }
-  
-  .filter__left div:nth-child(2) {
-    font-size: 12px;
-    color: #fdfdfd;
-  }
-  
-  .filter__sort {
-    margin-left: 20px;
-    margin-top: 4px;
-    cursor: pointer;
-    height: 47px;
-    color: #fdfdfd;
-  }
-  
-  .filter__sort select {
-    width: 150px;
-    margin-left: 10px;
-    border: 1px solid #2d2d2d;
-    border-radius: 2px;
-    height: 21px;
-    line-height: 18px;
-    outline: none;
-    background-color: #373737;
-    color: #fdfdfd;
-    cursor: pointer;
-  }
-  
-  .filter__right {
-    align-items: center;
-  }
-  
-  .filter__sort div:nth-child(1) {
-    font-size: 13px;
-    color: #a9a9a9;
-  }
-  
-  .share__icons {
-    margin-left: 10px;
-    color: #a9a9a9;
-    align-items: center;
-    gap: 0.3rem;
-    cursor: pointer;
-  }
-  
-  .share__icons div:nth-child(n):hover {
-    color: #ffff;
-  }
-  
-  .share__icons div:nth-child(1) {
-    font-size: 13px;
-  }
-  
-  .share__icons div:nth-child(1):hover {
-    color: #a9a9a9;
-  }
-  
-  .filter__tab {
-    background-color: #373737;
-    height: 47px;
-    line-height: 47px;
-    padding: 0 50px;
-    border-bottom: 1px solid #2d2d2d;
-    clear: both;
-  }
-  
-  .filter__option {
-    width: 100%;
-    height: 48px;
-    overflow: hidden;
-    color: #c7c7c7;
-  }
-  
-  .filter__option div:nth-child(n) {
-    border-right: 1px solid #2d2d2d;
-    color: #c7c7c7;
-    font-size: 14px;
-    cursor: pointer;
-    display: block;
-    padding-left: 10px;
-    padding-right: 10px;
-    border-bottom: 3px solid transparent;
-    line-height: 45px;
-  }
-  
-  .filter__option div:first-child {
-    font-size: 14px;
-    border: none;
-    border-right: none;
-    cursor: default;
-  }
-  
-  .filter__option div:first-child:hover {
-    border-bottom: transparent !important;
-  }
-  
-  .filter__option div:nth-child(n):hover {
-    border-bottom: 3px solid #dd5808;
-  }
-  
-  .pincode__input {
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-  }
-  
-  .filter__Pin input {
-    background: #3d3d3d;
-    height: 30px;
-    width: 130px;
-    border: 1px solid #2d2d2d;
-    border-radius: 3px;
-    padding: 0 10px;
-    color: #bdbdbd;
-    font-size: 12px;
-    outline: none;
-  }
-  
-  .check__btn {
-    position: absolute;
-    right: 50px;
-    top: 18px;
-    font-size: 12px !important;
-    color: #ff7043;
-    line-height: 17px;
-    cursor: pointer;
-    padding: 0 10px;
-  }
-  
-  /* --product-list-- */
-  
-  .product__container {
-    width: 1253px;
-    margin: 0 auto;
-    z-index: 2;
-  }
-  
-  .product__view {
-    padding-top: 30px;
-    padding-bottom: 30px;
-  }
-  
-  .product__div {
-    float: left;
-    width: 290px;
-    height: 500px;
-    margin-right: 25px;
-    margin-bottom: 30px;
-    cursor: pointer;
-    text-align: center;
-    position: relative;
-    background-color: #fff;
-  }
-  
-  .product__view > div > div {
-    margin-right: 20px;
-  }
-  
-  .product__img {
-    height: 330px;
-    padding-top: 0.46rem;
-  }
-  
-  .product__img img {
-    width: 260px;
-    height: 315px;
-    margin-top: 0;
-  }
-  
-  .product__title {
-    line-height: 18px;
-    padding-bottom: 4px;
-  }
-  
-  .product__div .product__title p {
-    font-size: 15px;
-    margin-bottom: 3px;
-    color: #363636;
-  }
-  
-  .product__div .product__title p:nth-child(2) {
-    font-size: 12px;
-    margin-bottom: 5px;
-    color: #959595;
-  }
-  
-  .product__div .product__title span {
-    display: inline;
-    margin-right: 10px;
-    padding-right: 10px;
-  }
-  
-  .org__rs {
-    border-right: solid 1px #dadada;
-  }
-  
-  .product__rs {
-    font-size: 14px !important;
-    color: #424242;
-    line-height: 20px;
-    font-weight: bold;
-  }
-  
-  .dis__rs {
-    text-decoration: line-through;
-    opacity: 0.7;
-  }
-  
-  .product__club-block {
-    margin: 5px 0 12px 0;
-    overflow: hidden;
-    clear: both;
-  }
-  
-  .club-star-img {
-    background-image: url(https://cdn.fcglcdn.com/brainbees/images/club_flag_listing_desktop.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    height: 16px;
-    width: 16px;
-    display: inline-block !important;
-    margin: 0 2px 0 0 !important;
-    padding-right: 0 !important;
-    position: relative;
-    top: 4px;
-    border-right: none !important;
-  }
-  
-  .club__pText {
-    font-weight: bold;
-    font-size: 12px;
-    color: #757575;
-    line-height: 17px;
-  }
-  
+  padding-top: 20px;
+  padding-bottom: 15px;
+  width: 1253px;
+  margin: 0 auto;
+  z-index: 2;
+  justify-content: space-between;
+}
+
+.banner__div {
+  box-shadow: 0 0 0 1px #fff;
+  background-color: #fff;
+}
+
+.banner__text1 {
+  font-size: 13px;
+  color: #3d3d3d;
+}
+
+.banner__text2 {
+  font-size: 15px;
+  color: #dd5808;
+}
+
+.banner__img {
+  overflow: hidden;
+  height: 295px;
+  background-image: url("https://cdn.fcglcdn.com/brainbees/images/boutique/tileimages/26305.webp");
+  background-repeat: repeat-x;
+}
+
+.banner__img > div {
+  width: 994px;
+  margin: 0 auto;
+}
+
+/* -------- filter --------- */
+
+.filter__container {
+  background-color: #373737;
+}
+
+.filter__head {
+  padding: 0 50px;
+  height: 47px;
+  line-height: 47px;
+  background-color: #3d3d3d;
+  border: 1px solid #2d2d2d;
+  justify-content: space-between;
+}
+
+.filter__left div:nth-child(1) {
+  font-size: 15px;
+  color: #fdfdfd;
+  margin-right: 10px;
+}
+
+.filter__left div:nth-child(2) {
+  font-size: 12px;
+  color: #fdfdfd;
+}
+
+.filter__sort {
+  margin-left: 20px;
+  margin-top: 4px;
+  cursor: pointer;
+  height: 47px;
+  color: #fdfdfd;
+}
+
+.filter__sort select {
+  width: 150px;
+  margin-left: 10px;
+  border: 1px solid #2d2d2d;
+  border-radius: 2px;
+  height: 21px;
+  line-height: 18px;
+  outline: none;
+  background-color: #373737;
+  color: #fdfdfd;
+  cursor: pointer;
+}
+
+.filter__right {
+  align-items: center;
+}
+
+.filter__sort div:nth-child(1) {
+  font-size: 13px;
+  color: #a9a9a9;
+}
+
+.share__icons {
+  margin-left: 10px;
+  color: #a9a9a9;
+  align-items: center;
+  gap: 0.3rem;
+  cursor: pointer;
+}
+
+.share__icons div:nth-child(n):hover {
+  color: #ffff;
+}
+
+.share__icons div:nth-child(1) {
+  font-size: 13px;
+}
+
+.share__icons div:nth-child(1):hover {
+  color: #a9a9a9;
+}
+
+.filter__tab {
+  background-color: #373737;
+  height: 47px;
+  line-height: 47px;
+  padding: 0 50px;
+  border-bottom: 1px solid #2d2d2d;
+  clear: both;
+}
+
+.filter__option {
+  width: 100%;
+  height: 48px;
+  overflow: hidden;
+  color: #c7c7c7;
+}
+
+.filter__option div:nth-child(n) {
+  border-right: 1px solid #2d2d2d;
+  color: #c7c7c7;
+  font-size: 14px;
+  cursor: pointer;
+  display: block;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-bottom: 3px solid transparent;
+  line-height: 45px;
+}
+
+.filter__option div:first-child {
+  font-size: 14px;
+  border: none;
+  border-right: none;
+  cursor: default;
+}
+
+.filter__option div:first-child:hover {
+  border-bottom: transparent !important;
+}
+
+.filter__option div:nth-child(n):hover {
+  border-bottom: 3px solid #dd5808;
+}
+
+.pincode__input {
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.filter__Pin input {
+  background: #3d3d3d;
+  height: 30px;
+  width: 130px;
+  border: 1px solid #2d2d2d;
+  border-radius: 3px;
+  padding: 0 10px;
+  color: #bdbdbd;
+  font-size: 12px;
+  outline: none;
+}
+
+.check__btn {
+  position: absolute;
+  right: 50px;
+  top: 18px;
+  font-size: 12px !important;
+  color: #ff7043;
+  line-height: 17px;
+  cursor: pointer;
+  padding: 0 10px;
+}
+
+/* --product-list-- */
+
+.product__container {
+  width: 1253px;
+  margin: 0 auto;
+  z-index: 2;
+}
+
+.product__view {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.product__div {
+  float: left;
+  width: 290px;
+  height: 500px;
+  margin-right: 25px;
+  margin-bottom: 30px;
+  cursor: pointer;
+  text-align: center;
+  position: relative;
+  background-color: #fff;
+}
+
+.product__view > div > div {
+  margin-right: 20px;
+}
+
+.product__img {
+  height: 330px;
+  padding-top: 0.46rem;
+}
+
+.product__img img {
+  width: 260px;
+  height: 315px;
+  margin-top: 0;
+}
+
+.product__title {
+  line-height: 18px;
+  padding-bottom: 4px;
+}
+
+.product__div .product__title p {
+  font-size: 15px;
+  margin-bottom: 3px;
+  color: #363636;
+}
+
+.product__div .product__title p:nth-child(2) {
+  font-size: 12px;
+  margin-bottom: 5px;
+  color: #959595;
+}
+
+.product__div .product__title span {
+  display: inline;
+  margin-right: 10px;
+  padding-right: 10px;
+}
+
+.org__rs {
+  border-right: solid 1px #dadada;
+}
+
+.product__rs {
+  font-size: 14px !important;
+  color: #424242;
+  line-height: 20px;
+  font-weight: bold;
+}
+
+.dis__rs {
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+.product__club-block {
+  margin: 5px 0 12px 0;
+  overflow: hidden;
+  clear: both;
+}
+
+.club-star-img {
+  background-image: url(https://cdn.fcglcdn.com/brainbees/images/club_flag_listing_desktop.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 16px;
+  width: 16px;
+  display: inline-block !important;
+  margin: 0 2px 0 0 !important;
+  padding-right: 0 !important;
+  position: relative;
+  top: 4px;
+  border-right: none !important;
+}
+
+.club__pText {
+  font-weight: bold;
+  font-size: 12px;
+  color: #757575;
+  line-height: 17px;
+}
+
+.show__filter_btn {
+  padding: 0 10px;
+  font-size: 12px;
+  color: #fff;
+  cursor: pointer;
+  background-color: #ff7043;
+  border-radius: 3px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+}

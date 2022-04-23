@@ -29,7 +29,7 @@ function ProductList() {
   /*   const filteredData = useSelector((state) => state.product.filteredProducts);
   console.log("filtered - data", filteredData[0].productData); */
 
-  // const [showFilterOption, setShowFilterOption] = useState(false);
+  const [showFilterOption, setShowFilterOption] = useState(false);
 
   return (
     <div>
@@ -102,7 +102,12 @@ function ProductList() {
         </div>
 
         <div className="filter__tab pincode__input dis-flex">
-          <div></div>
+          <div
+            className="show__filter_btn"
+            onClick={() => setShowFilterOption(!showFilterOption)}
+          >
+            Show filter's Options
+          </div>
           <div className="filter__Pin dis-flex">
             <input type="text" placeholder="Enter Pin Code" />
             <span className="check__btn">CHECK</span>
@@ -110,7 +115,12 @@ function ProductList() {
         </div>
 
         {/* filters options */}
-        <div className="filters__options">
+        <div
+          className="filters__options"
+          style={{
+            display: showFilterOption ? "block" : "none",
+          }}
+        >
           <FilterBySubCategory />
           <FilterByBrands />
           <FilterByDiscount />
