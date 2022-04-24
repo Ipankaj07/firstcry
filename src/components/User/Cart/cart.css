@@ -64,3 +64,10 @@
   position: relative;
   top: 4px;
 }
+
+.gen__cart{
+  color: #fff;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
