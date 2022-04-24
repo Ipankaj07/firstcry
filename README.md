@@ -5,10 +5,9 @@
 > Tech Stack in Frontend:
 > 
 1. React Js
-2. Bootstrap
+2. HTML
 3. CSS3
-4. HTML
-5. Redux
+4. Redux
 
 > Tech Stack in Backend:
 > 
