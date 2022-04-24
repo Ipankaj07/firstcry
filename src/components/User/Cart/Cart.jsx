@@ -72,90 +72,105 @@ function Cart() {
 
   const navigate = useNavigate();
 
+  // if userId not persent then show nothing in cart abdshow a button to login or signup
+
   return (
-    <div
-      className="dis-flex cart__container"
-      style={{ padding: "3rem", color: "#fff" }}
-    >
-      {/* <pre>{JSON.stringify(cartData, null, 2)}</pre> */}
+    <div>
+      {userId ? (
+        <div
+          className="dis-flex cart__container"
+          style={{ padding: "3rem", color: "#fff" }}
+        >
+          {/* <pre>{JSON.stringify(cartData, null, 2)}</pre> */}
 
-      <div className="cart__div">
-        {loading ? (
-          <div className="cart__div__loading">
-            <h1>Loading...</h1>
-          </div>
-        ) : (
-          cartData.map((item) => {
-            return (
-              <div className="cart__div__item dis-flex" key={uuidv4()}>
-                <div
-                  className="cart__item__img cart__left"
-                  style={{
-                    backgroundImage: `url(${item.image})`,
-                  }}
-                ></div>
-                <div className="cart__right">
-                  <div className="cart__item__name">
-                    <h3>{item.name}</h3>
-                  </div>
-                  <div className="cart__item__price">
-                    <h3>
-                      Price : <BiRupee className="rs__logo" />{" "}
-                      {(item.price * (100 - item.discount)) / 100}
-                      <span className="span_price">({item.discount}% OFF)</span>
-                      <span className="span_price ori">
-                        <BiRupee className="rs__logo" /> {item.price}
-                      </span>
-                    </h3>
-
+          <div className="cart__div">
+            {loading ? (
+              <div className="cart__div__loading">
+                <h1>Loading...</h1>
+              </div>
+            ) : (
+              cartData.map((item) => {
+                return (
+                  <div className="cart__div__item dis-flex" key={uuidv4()}>
                     <div
-                      className="btn__remove-cart"
-                      onClick={() => {
-                        removeProduct(item._id, userId);
-                        setLoad(false);
+                      className="cart__item__img cart__left"
+                      style={{
+                        backgroundImage: `url(${item.image})`,
                       }}
-                    >
-                      REMOVE FROM CART
+                    ></div>
+                    <div className="cart__right">
+                      <div className="cart__item__name">
+                        <h3>{item.name}</h3>
+                      </div>
+                      <div className="cart__item__price">
+                        <h3>
+                          Price : <BiRupee className="rs__logo" />{" "}
+                          {(item.price * (100 - item.discount)) / 100}
+                          <span className="span_price">
+                            ({item.discount}% OFF)
+                          </span>
+                          <span className="span_price ori">
+                            <BiRupee className="rs__logo" /> {item.price}
+                          </span>
+                        </h3>
+
+                        <div
+                          className="btn__remove-cart"
+                          onClick={() => {
+                            removeProduct(item._id, userId);
+                            setLoad(false);
+                          }}
+                        >
+                          REMOVE FROM CART
+                        </div>
+                      </div>
                     </div>
                   </div>
+                );
+              })
+            )}
+          </div>
+          <div className="cart__item__price2">
+            {loading ? (
+              <div className="cart__div__loading">
+                <h1>Loading...</h1>
+              </div>
+            ) : (
+              <div>
+                <h3>
+                  Total Price : <BiRupee className="rs__logo" />
+                  {parseFloat(
+                    cartData.reduce((acc, curr) => {
+                      return acc + (curr.price * (100 - curr.discount)) / 100;
+                    }, 0)
+                  ).toFixed(2)}
+                </h3>
+                <div
+                  className="btn__remove-cart"
+                  onClick={() => {
+                    setCheckoutBtnText("Loading...");
+                    setTimeout(() => {
+                      setCheckoutBtnText("Payment Processing...");
+                      setTimeout(() => {
+                        navigate("/checkout");
+                      }, 2000);
+                    }, 1000);
+                  }}
+                >
+                  {checkoutBtnText}
                 </div>
               </div>
-            );
-          })
-        )}
-      </div>
-      <div className="cart__item__price2">
-        {loading ? (
-          <div className="cart__div__loading">
-            <h1>Loading...</h1>
+            )}
           </div>
-        ) : (
-          <div>
-            <h3>
-              Total Price : <BiRupee className="rs__logo" />
-              {parseFloat(
-                cartData.reduce((acc, curr) => {
-                  return acc + (curr.price * (100 - curr.discount)) / 100;
-                }, 0)
-              ).toFixed(2)}
-            </h3>
-            <div
-              className="btn__remove-cart"
-              onClick={() => {
-                setCheckoutBtnText("Loading...");
-                setTimeout(() => {
-                  setCheckoutBtnText("Payment Processing...");
-                  setTimeout(() => {
-                    navigate("/checkout");
-                  }, 2000);
-                }, 1000);
-              }}
-            >
-              {checkoutBtnText}
-            </div>
+        </div>
+      ) : (
+        <div className="gen__cart dis-flex">
+          <h1>Please Login to see Cart</h1>
+          <div className="btn__remove-cart" onClick={() => navigate("/login")}>
+            Login
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 }
