@@ -13,7 +13,7 @@ import { filterProductsData } from "../../../../src/redux/actions/productAction"
 
 function NavBar() {
   let isUserLogedIn = localStorage.getItem("isUserLogedIn");
-  let userName = localStorage.getItem("userName");
+  let userName = JSON.parse(localStorage.getItem("userName"));
 
   useEffect(() => {
     if (isUserLogedIn) {
@@ -92,7 +92,6 @@ function NavBar() {
                 ) : (
                   <Link to="/login">Login/Register</Link>
                 )}
-                {/* <Link to="/login">Login/Register</Link> */}
               </div>
               <div className="nav__listItem dis-flex">
                 <AiOutlineHeart className="nav__icon heart" />
